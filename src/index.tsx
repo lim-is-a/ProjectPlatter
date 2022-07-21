@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { DogApp } from './pages/DogApp';
+import { MoviesApp } from './pages/MoviesApp';
+import { TicTacToe } from './pages/TicTacToe';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>}/>
+        <Route path="/tic-tac-toe" element={<TicTacToe/>}/>
+        <Route path="/movies" element={<MoviesApp/>}/>
+        <Route path="/dog-app" element={<DogApp/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
