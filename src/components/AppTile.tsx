@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 
-const StyledDiv = styled.div`
+const Tile = styled.div`
     border: 2px solid  #52bb8b;
     width:30%;
     height: 300px;
@@ -11,12 +12,15 @@ const StyledDiv = styled.div`
     justify-content: center;
     align-items:center;
 `
+interface AppTileProps{
+    appName: string
+}
 
-const AppTile = () => {
+const AppTile = ({appName}: AppTileProps) => {
     return (
-        <StyledDiv> 
-            <p>AppTile</p>   
-        </StyledDiv>
+        <Tile> 
+            <Link to={`/${appName.toLowerCase().replaceAll(" ", "-")}`} >{appName}</Link>
+        </Tile>
         )
 }
 
